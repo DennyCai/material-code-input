@@ -27,7 +27,7 @@ public class CodeInput extends View {
     private static final int DEFAULT_CODES = 6;
     private static final Pattern KEYCODE_PATTERN = Pattern.compile("\\w");
     private FixedStack<Character> characters;
-    private Underline underlines[];
+    protected Underline underlines[];
     private Paint underlinePaint;
     private Paint underlineSelectedPaint;
     private Paint textPaint;
@@ -50,7 +50,7 @@ public class CodeInput extends View {
     private long animationDuration;
     private int height;
     private int underlineAmount;
-    private int underlineColor;
+    protected int underlineColor;
     private int underlineSelectedColor;
     private int hintColor;
     private int textColor;
