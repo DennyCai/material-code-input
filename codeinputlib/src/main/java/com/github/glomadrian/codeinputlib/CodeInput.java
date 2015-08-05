@@ -231,21 +231,17 @@ public class CodeInput extends View {
      */
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent keyevent) {
-        try {
             String text = keyevent.getDisplayLabel() + "";
             Matcher matcher = KEYCODE_PATTERN.matcher(text);
             if (matcher.matches()) {
                 char character = matcher.group().charAt(0);
                 characters.push(character);
+                invalidate();
                 return true;
             } else {
                 return false;
             }
-        } finally {
-            invalidate();
-        }
     }
-
     /**
      * When a touch is detected the view need to focus and animate if is necessary
      */
