@@ -19,7 +19,7 @@ Based on
 How to use
 ----------
 
-Minimal SDK Version 11
+Minimal SDK Version 8
 
 Usage with default colors (the default codes is 6)
 
