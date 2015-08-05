@@ -57,6 +57,8 @@ public class CodeInput extends View {
     private boolean underlined = true;
     private String hintText;
 
+    private float mUnderLineLenght;
+
     public CodeInput(Context context) {
         super(context);
         init(null);
@@ -100,6 +102,8 @@ public class CodeInput extends View {
         hintActualMarginBottom = 0;
         underlineAmount = DEFAULT_CODES;
         reduction = 0.0F;
+
+        mUnderLineLenght = underlineWidth * 4;
     }
 
     private void initCustomAttributes(AttributeSet attributeset) {
@@ -297,6 +301,10 @@ public class CodeInput extends View {
         canvas.drawText(hintText, hintX, height - textMarginBottom - hintActualMarginBottom, hintPaint);
     }
 
+    protected float getUnderlineLength(){
+        return mUnderLineLenght;
+    }
+
     public Character[] getCode() {
         return characters.toArray(new Character[underlineAmount]);
     }
@@ -321,6 +329,7 @@ public class CodeInput extends View {
         @Override
         public void onAnimationUpdate(ValueAnimator animation) {
             hintActualMarginBottom = (float) animation.getAnimatedValue();
+            invalidate();
         }
     }
 
